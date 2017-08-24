@@ -1,2 +1,4 @@
-@import './app/views/app/App.css';
-@import './app/views/shop/Shop.css';
+@import "./app/views/app/App.css";
+@import "./app/views/shop/Shop.css";
+@import "./app/ui/flash/Flash.css";
+@import "./app/views/user/User.css";

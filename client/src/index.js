@@ -17,7 +17,7 @@ const render = Component => {
 render(App)
 
 console.info(
-  ' Launching...\n %cRICs FRUIT STORE%c',
+  ' Launching...\n%cRIC\'s FRUIT STORE%c',
   'font-size: 18px; font-weight: 400; font-family: HelveticaNeue, Arial, sans-serif;',
   ''
 )
