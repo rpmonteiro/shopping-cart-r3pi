@@ -2,16 +2,11 @@
   "name": "amz-fba-sv",
   "version": "2.0.0",
   "main": "index.js",
-  "repository": "https://rpmonteiro@github.com/rpmonteiro/amz-fba-sv.git",
+  "repository": "https://rpmonteiro@github.com/rpmonteiro/shopping-cart-r3pi.git",
   "author": "rpmonteiro <ricpmonteiro@gmail.com>",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "scripts": {
-    "dev": "clear && nodemon --inspect --debug ./src/server.js",
-    "db:push": "node ./heroku-push.js",
-    "db:pull": "node ./heroku-pull.js",
-    "release-patch": "release-it patch -n",
-    "release-minor": "release-it minor -n",
-    "release-major": "release-it major -n"
+    "dev": "clear && nodemon --inspect --debug server.js"
   },
   "dependencies": {
     "bcryptjs": "2.4.3",

@@ -2,7 +2,7 @@
 
 require('dotenv').config({ silent: true })
 const env      = process.env.NODE_ENV || 'development'
-const dbConfig = require('../../database.json')
+const dbConfig = require('../database.json')
 
 const config = {
   env,

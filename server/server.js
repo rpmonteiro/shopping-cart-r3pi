@@ -7,7 +7,6 @@ const logger       = require('koa-morgan')
 const helmet       = require('koa-helmet')
 const errorHandler = require('koa-error')
 const cors         = require('kcors')
-const bodyParser   = require('koa-bodyparser')
 const compress     = require('koa-compress')
 const enforceHttps = require('koa-sslify')
 const config       = require('./config/settings')
@@ -29,7 +28,6 @@ if (config.env === 'production') {
 
 app.use(helmet())
 app.use(errorHandler())
-app.use(bodyParser())
 app.use(compress())
 
 process.on('unhandledRejection', reason => {
