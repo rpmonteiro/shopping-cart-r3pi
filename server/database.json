@@ -1,6 +1,0 @@
-{
-  "dev": {
-    "driver": "pg",
-    "database": "rics-grocery-shop"
-  }
-}
