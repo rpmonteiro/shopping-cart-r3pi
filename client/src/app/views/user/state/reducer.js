@@ -1,6 +1,6 @@
-'use strict'
-
-import { fromJS } from 'immutable'
+import { fromJS }    from 'immutable'
+import settings      from '../../../config/settings'
+import { setCookie } from '../../../utils/cookies'
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -30,16 +30,19 @@ export default function reducer(state = initialState, action = {}) {
         editing:  false
       })
 
-    case LOGIN_SUCCESS:
+    case LOGIN_SUCCESS: {
+      const { token, profile, expires } = action.data
+      setCookie(settings.jwtKey, token, expires)
       return state.merge({
         pending:   false,
         loggedIn:  true,
-        profile:   action.data.get('profile'),
-        token:     action.data.get('token'),
+        profile:   profile,
+        token:     token,
         error:     '',
         editing:   false,
         updatedAt: Date.now()
       })
+    }
 
     case LOGIN_FAILURE:
       return state.merge({

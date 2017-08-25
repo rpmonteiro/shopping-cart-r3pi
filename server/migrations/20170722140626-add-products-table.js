@@ -2,9 +2,9 @@
 
 exports.up = function (db) {
   return db.createTable('products', {
-    id:         { type: 'int',    primaryKey: true, autoIncrement: true },
-    title:      { type: 'string', notNull: true },
-    price:      { type: 'int',    notNull: true },
+    id:         { type: 'int',     primaryKey: true, autoIncrement: true },
+    title:      { type: 'string',  notNull: true },
+    price:      { type: 'decimal', notNull: true },
     body:       { type: 'string' },
     created_at: { type: 'timestamptz', notNull: true, defaultValue: new String('now()') }
   })
@@ -20,9 +20,7 @@ exports.up = function (db) {
          (
            'Oranges',
            '0.30',
-           'From sunny Algarve (south of Portugal), they are the oldest and best kind of oranges there is. Yum!',
-           '0.64',
-           '3.5'
+           'From sunny Algarve (south of Portugal), they are the oldest and best kind of oranges there is. Yum!'
          ),
          (
            'Red Bananas',

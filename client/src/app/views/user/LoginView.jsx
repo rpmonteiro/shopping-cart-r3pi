@@ -1,4 +1,4 @@
-'use strict'
+
 
 import PropTypes                from 'prop-types'
 import React, { PureComponent } from 'react'
@@ -22,10 +22,10 @@ export class LoginView extends PureComponent {
   render() {
     if (this.props.loggedIn) {
       const state = this.props.location.state
-      const to = (state && state.from) || window._loginRedirect || '/orders'
+      const to = (state && state.from) || window._loginRedirect || '/shop'
       window._loginRedirect = null
 
-      return <Redirect to={to !== '/login' ? to : '/orders'} push={false} />
+      return <Redirect to={to !== '/login' ? to : '/shop'} push={false} />
     }
 
     return (

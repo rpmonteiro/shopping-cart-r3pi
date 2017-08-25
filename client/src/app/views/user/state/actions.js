@@ -1,8 +1,6 @@
-'use strict'
-
-import settings                 from 'config/settings'
-import { setCookie, getCookie } from 'utils/cookies'
-import { thunk, action }        from '../../../utils/redux-helpers'
+import settings          from '../../../config/settings'
+import { getCookie }     from '../../../utils/cookies'
+import { thunk, action } from '../../../utils/redux-helpers'
 
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
@@ -12,10 +10,7 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 
 export const loginRequest = ()   => action(LOGIN_REQUEST)
 export const loginSuccess = data => action(LOGIN_SUCCESS, data)
-export const loginFailure = data => {
-  setCookie(settings.jwtKey, data.token, data.expires)
-  return action(LOGIN_FAILURE, data)
-}
+export const loginFailure = err  => action(LOGIN_FAILURE, err.statusText)
 
 
 export const login = data => thunk({

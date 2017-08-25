@@ -1,4 +1,4 @@
-'use strict'
+
 
 // ref: https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
 export function getCookie(key) {
@@ -36,7 +36,7 @@ export function setCookie(key, val = '', expires = 0) {
     cookie.push(`${key}=${encodeURIComponent(val)}`)
     cookie.push(`expires=${expiryDate.toUTCString()}`)
 
-    if (location.protocol === 'https:') {
+    if (window.location.protocol === 'https:') {
       cookie.push('secure')
     }
 

@@ -3,7 +3,6 @@
 const Router   = require('koa-router')
 const jwt      = require('koa-jwt')
 const auth     = require('../endpoints/auth')
-const user     = require('../endpoints/user')
 const products = require('../endpoints/products')
 
 
@@ -42,7 +41,6 @@ module.exports = function (app, config) {
 
   // protected API routes
   const protectedRoutes = new Router({ prefix: '/api' })
-  protectedRoutes.get('/user', user.user)
   protectedRoutes.get('/products', products.products)
 
   app.use(protectedRoutes.routes())

@@ -1,4 +1,4 @@
-'use strict'
+
 
 import { action } from '../../utils/redux-helpers'
 import { fromJS } from 'immutable'

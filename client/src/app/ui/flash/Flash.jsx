@@ -1,7 +1,7 @@
 import PropTypes                from 'prop-types'
 import React, { PureComponent } from 'react'
 import { connect }              from 'react-redux'
-import { resetFlash }           from './popups-redux'
+import { resetFlash }           from './flash-redux'
 
 const flashDuration = 4 * 1000
 

@@ -1,9 +1,9 @@
-'use strict'
+
 
 import fetch                          from 'isomorphic-fetch'
-import settings                       from 'config/settings'
-import { checkHttpStatus, parseJSON } from 'utils/helpers'
-import { flashMessage }               from 'ui/popups/popups-redux'
+import settings                       from '../config/settings'
+import { checkHttpStatus, parseJSON } from './helpers'
+import { flashMessage }               from '../ui/flash/flash-redux'
 
 export function action(type, data) {
   return { type, data }
@@ -32,12 +32,12 @@ export function thunk({endpoint, method, body, onReq, onErr, onSuccess}) {
       .then(checkHttpStatus)
       .then(parseJSON)
       .catch(err => {
-        dispatch(flashMessage(err.response.statusText, 'error'))
+        err.err ? dispatch(flashMessage(err.err.message, 'error')) : ''
         dispatch(onErr(err))
       })
       .then(res => {
         res.message ? dispatch(flashMessage(res.message, 'success')) : ''
-        dispatch(onSuccess(res.data))
+        dispatch(onSuccess(res))
       })
   }
 }

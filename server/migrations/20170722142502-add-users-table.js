@@ -15,7 +15,7 @@ exports.up = function (db) {
         INSERT INTO users (email, password_hash, name)
              VALUES (
                'r3pi@solera.com',
-               '',
+               '$2a$10$BJSTIPnTKu5Qw6TdOP5j2OQryJA3Z2Mnp.QOFlZ7AjPFh9KjmiWUO',
                'r3pi Team'
              )
         `

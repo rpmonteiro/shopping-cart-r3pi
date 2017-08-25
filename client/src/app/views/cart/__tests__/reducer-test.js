@@ -1,4 +1,4 @@
-'use strict'
+
 
 import expect       from 'expect'
 import reducer      from '../state/reducer'
