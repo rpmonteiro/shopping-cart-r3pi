@@ -1,5 +1,3 @@
-'use strict'
-
 const env         = process.env.NODE_ENV
 const localServer = 'http://localhost:9010'
 

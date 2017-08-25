@@ -1,5 +1,3 @@
-
-
 import fetch                          from 'isomorphic-fetch'
 import settings                       from '../config/settings'
 import { checkHttpStatus, parseJSON } from './helpers'
@@ -32,11 +30,15 @@ export function thunk({endpoint, method, body, onReq, onErr, onSuccess}) {
       .then(checkHttpStatus)
       .then(parseJSON)
       .catch(err => {
-        err.err ? dispatch(flashMessage(err.err.message, 'error')) : ''
+        if (err.err) {
+          dispatch(flashMessage(err.err.message, 'error'))
+        }
         dispatch(onErr(err))
       })
       .then(res => {
-        res.message ? dispatch(flashMessage(res.message, 'success')) : ''
+        if (res.message) {
+          dispatch(flashMessage(res.message, 'success'))
+        }
         dispatch(onSuccess(res))
       })
   }
