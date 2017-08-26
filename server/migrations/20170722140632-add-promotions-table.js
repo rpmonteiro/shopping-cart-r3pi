@@ -2,17 +2,24 @@
 
 exports.up = function (db) {
   return db.createTable('promotions', {
-    id:         { type: 'int', primaryKey: true, autoIncrement: true },
-    product_id: { type: 'int', notNull:    true },
-    type:       { type: 'string', notNull: true }
+    id:            { type: 'int', primaryKey:       true, autoIncrement: true },
+    product_id:    { type: 'int', notNull:          true },
+    three_for_two: { type: 'boolean', defaultValue: false },
+    discount:      { type: 'int' }
   })
     .then(() => {
       return db.runSql(
         `
-        INSERT INTO promotions (product_id, type)
+        INSERT INTO promotions (product_id, three_for_two, discount)
          VALUES (
            '4',
-           '3 for 2'
+           true,
+           null
+         ),
+         (
+           '2',
+           false,
+           '15'
          );
         `
       )

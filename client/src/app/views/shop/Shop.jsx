@@ -29,9 +29,10 @@ export class Shop extends Component {
     }
 
     return (
-      <div className="shop">
+      <section className="shop">
+        <h4>{'Ric\'s fruit shop'}</h4>
         <ProductsList products={products} />
-      </div>
+      </section>
     )
   }
 

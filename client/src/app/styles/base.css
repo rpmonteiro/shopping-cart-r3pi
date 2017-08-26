@@ -17,7 +17,6 @@ body {
   opacity: 1;
   transition-duration: 0.5s;
   transition-property: opacity;
-  user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-app-region: drag;
 }
