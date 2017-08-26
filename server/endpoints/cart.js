@@ -23,7 +23,7 @@ const totals = async function (ctx) {
     let qty           = parseInt(cart[id])
     const price       = parseFloat(p.price)
     const discount    = parseFloat(p.discount)
-    const fullPrice   = price * qty
+    const fullPrice   = round(price * qty)
     const threeForTwo = p['3for2']
 
     let total = fullPrice, savings = 0

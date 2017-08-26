@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 export default function Menu() {
   return (
     <div className="menu">
-      <div></div>
       <Link className="shop-link" to="/shop">Shop</Link>
       <CartIcon />
     </div>
