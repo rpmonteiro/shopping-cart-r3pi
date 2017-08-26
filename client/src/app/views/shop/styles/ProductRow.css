@@ -4,11 +4,6 @@
   max-width: 30vw;
 }
 
-.product-row:not(:first-child) {
-  margin-top: 2rem;
-}
-
-
 .product-row .details {
   padding-left: 1rem;
 }
@@ -39,8 +34,8 @@
 }
 
 .product-row img {
-  width: 200px;
-  height: 200px;
+  width: var(--image-width);
+  height: var(--image-width);
 }
 
 .product-title {

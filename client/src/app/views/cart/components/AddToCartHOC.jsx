@@ -56,47 +56,43 @@ export default function AddToCartHOC(Product) {
         <button
           data-add={add}
           onClick={this.updateCart}
-          className="btn btn-qty">
+          className="btn btn-primary">
           {text}
         </button>
       )
     }
+    
 
     render() {
       const { active, count } = this.state
 
-      console.log({id: this.props.id, active, count})
+      const addBtn = this.cartBtn('Add', true)
+      const btnRow = (
+        <div className="cart-qty-row">
+          {this.cartBtn('-')}
+          <span className="cart-item-count">{count}</span>
+          {this.cartBtn('+', true)}
+        </div>
+      )
 
-      let widget
-      if (active) {
-        const btnRow = (
-          <div className="cart-qty-row">
-            {this.cartBtn('-')}
-            {count}
-            {this.cartBtn('+', true)}
-          </div>
-        )
+      const basketInfo = (
+        <div className="cart-info">
+          <i className="icon md-16">shopping_basket</i>
+          <span>{count} in basket</span>
+        </div>
+      )
 
-        const basketInfo = (
-          <div className="cart-info">
-            <i className="material-icons md-18">shopping_cart</i>
-            <span>{count} in basket</span>
-          </div>
-        )
+      const widget = (
+        <div className="cart-widget">
+          {!active && addBtn}
+          {active && btnRow}
+          {active && basketInfo}
+        </div>
+      )
 
-        widget = (
-          <div className="cart-widget">
-            {btnRow}
-            {basketInfo}
-          </div>
-        )
-
-      } else {
-        widget = this.cartBtn('Add', true)
-      }
 
       return (
-        <div>
+        <div className="shop-row">
           <Product {...this.props} />
           {widget}
         </div>

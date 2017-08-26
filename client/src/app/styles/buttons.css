@@ -32,17 +32,17 @@
 }
 
 .btn-primary {
-  background-color: var(--focus-color);
+  background-color: var(--accents-color);
   color: #FFF;
   font-weight: 600;
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-action-hover-color);
+  background-color: var(--accents-hover-color);
 }
 
 .btn-primary:active {
-  background-color: var(--primary-action-active-color);
+  background-color: var(--accents-active-color);
 }
 
 .btn-secondary {
@@ -62,18 +62,4 @@
 .btn-primary[disabled]:hover,
 .btn-primary[disabled]:active {
   background-color: var(--primary-color);
-}
-
-.btn i.material-icons.md-18 {
-  position: relative;
-  top: 2px;
-}
-
-.btn.btn-icon {
-  padding-left: 0;
-  color: #999;
-}
-
-.btn.btn-icon:hover {
-  color: #666;
 }
