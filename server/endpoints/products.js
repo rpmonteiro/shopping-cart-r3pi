@@ -3,10 +3,12 @@
 
 const products = async function (ctx) {
   const products = await ctx.db.run(`
-      SELECT p.*
-        FROM products p
-   LEFT JOIN promotions promo
-          ON promo.product_id = p.id
+    SELECT product.*,
+           promotion.discount,
+           promotion.three_for_two AS "3for2"
+      FROM products product
+ LEFT JOIN promotions promotion
+        ON promotion.product_id = product.id
   `)
 
   ctx.body = products

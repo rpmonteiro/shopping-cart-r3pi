@@ -42,6 +42,7 @@
   --header-bg-color: hsl(40, 40%, 85%);
   --header-color: #7B6F4C;
   --highlight-color: #FFD525;
+  --light-red: rgb(255, 50, 50);
   --link-color-active: color(var(--link-color) shade(80%));
   --link-color-active-bg: color(#C27D3D a(0.3));
   --link-color-hover: #BA0002;
@@ -60,7 +61,7 @@
   --primary-color-active: color(var(--primary-color) shade(30%));
   --primary-color-hover: color(var(--primary-color) tint(20%));
   --quotebox-bg-color: #E6D9C0;
-  --red-color: #DA000C;
+  --red: #DA000C;
   /* typography */
   --sans-serif-font: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --secondary-color: #948C81;

@@ -16,19 +16,19 @@ exports.up = function (db) {
          VALUES (
            'Apple',
            0.25,
-           'These delicious apples Maigold from Wädenswil (ZH) will make you want to eat 4 in a row. Look how shiny they are!',
+           'This delicious Maigold Apple from Wädenswil (ZH) will make you want to eat 3 in a row. Buy 3 apples, please. Look how shiny they are!',
            70
          ),
          (
            'Orange',
            0.30,
-           'From sunny Algarve (south of Portugal), they are the oldest and best kind of oranges there is. Yum!',
+           'From sunny Algarve (south of Portugal), this is the oldest and best kind of Orange there is. Yum!',
            60
          ),
          (
            'Red Banana',
            0.15,
-           'Yes, red bananas! From the Americas, these bananas will impress your entire family when they come to visit you.',
+           'Yes, Red Banana! From the Americas, these bananas will impress your entire family when they come to visit you.',
            90
          ),
          (

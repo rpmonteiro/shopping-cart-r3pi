@@ -1,12 +1,56 @@
 .product-row {
   display: flex;
   flex-direction: row;
+  max-width: 30vw;
 }
 
-.product-row-details {
+.product-row:not(:first-child) {
+  margin-top: 2rem;
+}
+
+
+.product-row .details {
+  padding-left: 1rem;
+}
+
+.sweetness {
+  padding: 1rem 0;
+  font-weight: 500;
+  font-size: var(--font-size-smaller);
+}
+
+.price.strikethrough {
+  position: relative;
+  width: auto;
+  color: var(--secondary-color);
+  text-decoration: line-through var(--red);
+  font-size: smaller;
+}
+
+.special-offer,
+.discounted-price {
+  color: var(--light-red);
+  font-weight: 500;
+}
+
+.discount-info {
+  color: var(--light-red);
+  font-size: smaller;
 }
 
 .product-row img {
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
+}
+
+.product-title {
+  letter-spacing: -1px;
+  font-weight: 500;
+  font-size: var(--font-size-large);
+}
+
+.product-description {
+}
+
+.product-price {
 }

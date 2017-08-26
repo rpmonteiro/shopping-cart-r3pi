@@ -12,14 +12,14 @@ exports.up = function (db) {
         `
         INSERT INTO promotions (product_id, three_for_two, discount)
          VALUES (
-           '4',
+           4,
            true,
            null
          ),
          (
-           '2',
+           2,
            false,
-           '15'
+           15
          );
         `
       )

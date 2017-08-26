@@ -1,5 +1,6 @@
 @import "./app/views/app/App.css";
 @import "./app/views/shop/Shop.css";
+@import "./app/views/cart/Cart.css";
 @import "./app/ui/flash/Flash.css";
 @import "./app/views/user/User.css";
 @import "./app/styles/base.css";
