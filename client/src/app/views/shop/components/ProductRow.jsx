@@ -5,7 +5,6 @@ import Line         from '../../../ui/line/Line'
 import AddToCartHOC from '../../cart/components/AddToCartHOC'
 
 const currency  = settings.currency
-const bananaImg = 'https://i5.walmartimages.ca/images/Enlarge/580/6_r/875806_R.jpg'
 
 
 ProductRow.propTypes = {
@@ -16,6 +15,7 @@ ProductRow.propTypes = {
 export function ProductRow({product}) {
   const pPrice    = parseFloat(product.get('price'))
   const pDiscount = parseFloat(product.get('discount'))
+  const pTitle    = product.get('title')
 
   let discount, discountInfo, priceClass = 'price'
   if (pDiscount) {
@@ -25,7 +25,7 @@ export function ProductRow({product}) {
     priceClass     += ' strikethrough'
   }
 
-  const title       = <h3 className="title">{product.get('title')}</h3>
+  const title       = <h3 className="title">{pTitle}</h3>
   const description = <div className="description">{product.get('description')}</div>
   const price       = <div className={priceClass}>{currency} {pPrice}</div>
   const sweetness = (
@@ -43,7 +43,7 @@ export function ProductRow({product}) {
   return (
     <div className="product-row">
       <div className="slider">
-        <img src={bananaImg} />
+        <img src={product.getIn(['images', 0])} alt={pTitle} />
       </div>
       <div className="details">
         {title}

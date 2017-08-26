@@ -17,10 +17,6 @@ export class Shop extends Component {
     this.props.dispatch(getProducts())
   }
 
-  state = {
-
-  }
-
   render() {
     const { products } = this.props
 
@@ -30,7 +26,7 @@ export class Shop extends Component {
 
     return (
       <section className="shop">
-        <h4>{'Ric\'s fruit shop'}</h4>
+        <h2>Fruits in stock</h2>
         <ProductsList products={products} />
       </section>
     )

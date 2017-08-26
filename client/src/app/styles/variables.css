@@ -2,7 +2,8 @@
   --accents-active-color: rgb(255, 152, 34);
   --accents-color: rgb(255, 180, 96);
   --accents-hover-color: rgb(252, 197, 134);
-  --body-bg-color: rgb(255, 255, 255);
+  --body-bg-color: white;
+  --border-color: #303030;
   /* buttons */
   --button-font-family: inherit;
   --button-font-size: inherit;

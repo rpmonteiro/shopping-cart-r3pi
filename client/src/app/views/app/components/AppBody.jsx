@@ -14,9 +14,9 @@ import {
 export function AppBody() {
   return (
     <div className="app">
-      <Menu />
       <Flash />
-      <div className="app-view">
+      <div className="app-body">
+        <Menu />
         <Route exact path="/" render={() => <Redirect to="/shop"/>}/>
         <Route exact path="/shop" component={Shop} />
         <Route exact path="/cart" component={Cart} />

@@ -1,7 +1,13 @@
+.shop-row {
+  max-width: 45vw;
+}
+
+.shop-row:not(:first-child) {
+  margin-top: 3rem;
+}
+
 .product-row {
   display: flex;
-  flex-direction: row;
-  max-width: 30vw;
 }
 
 .product-row .details {
@@ -34,8 +40,9 @@
 }
 
 .product-row img {
+  max-height: var(--image-width);
   width: var(--image-width);
-  height: var(--image-width);
+  height: auto;
 }
 
 .product-title {

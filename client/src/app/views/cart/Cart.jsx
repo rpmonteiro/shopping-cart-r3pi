@@ -11,12 +11,12 @@ import {
 } from './state/actions'
 
 const COLUMNS = [
-  { value: 'Image',   class: 'image' },
-  { value: 'Title',   class: 'normal' },
-  { value: 'Price',   class: 'small' },
-  { value: 'Qty',     class: 'small' },
-  { value: 'Savings', class: 'small' },
-  { value: 'Total',   class: 'small' }
+  { value: '',              class: 'image' },
+  { value: 'Product title', class: 'normal' },
+  { value: 'Price',         class: 'small' },
+  { value: 'Qty',           class: 'small' },
+  { value: 'Savings',       class: 'small' },
+  { value: 'Total',         class: 'small' }
 ]
 
 const ROW_DATA = [
@@ -75,9 +75,9 @@ export class Cart extends PureComponent {
   render() {
     const { products, cart, totals } = this.props
 
-    let component
+    let view
     if (!cart.size) {
-      component = <div className="empty-cart">Your cart is empty</div>
+      view = <div className="empty-cart">Your cart is empty</div>
     } else {
       const cartItems = products
         .filter(p => cart.get(p.get('id')) !== undefined)
@@ -94,8 +94,8 @@ export class Cart extends PureComponent {
           })
         })
 
-      component = (
-        <div>
+      view = (
+        <div className="cart-view">
           <TableList
             items={cartItems}
             className="cart-items-list"
@@ -105,17 +105,14 @@ export class Cart extends PureComponent {
             rowData={ROW_DATA}
           />
           <div className="cart-total-price">
-            Total price: {settings.currency} {totals.get('order')}
+            Total price:
+            <span>{settings.currency} {totals.get('order')}</span>
           </div>
         </div>
       )
     }
 
-    return (
-      <div>
-        {component}
-      </div>
-    )
+    return view
   }
 
 }

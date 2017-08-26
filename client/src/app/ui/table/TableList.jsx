@@ -1,5 +1,3 @@
-'use strict'
-
 import React, { PureComponent } from 'react'
 import PropTypes                from 'prop-types'
 import Table                    from './Table'
@@ -57,7 +55,7 @@ export default class TableList extends PureComponent {
     const getValue   = k => items.getIn([idx, k])
     const components = {
       input: (k, v, d) => this.input({id, k, v, d, idx}),
-      image: (k, v)    => <img src={v}></img>
+      image: (k, v)    => <img src={v} alt={k}></img>
     }
 
     const data = rowData.map((d, idx) => {

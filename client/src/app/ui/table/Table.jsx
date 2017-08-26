@@ -17,7 +17,7 @@ export default function Table({columns, rows, className}) {
       return <td key={key}>{c.delete}{value}</td>
     })
 
-    return <tr className={className} key={`tr-${rIdx}`}>{row}</tr>
+    return <tr key={`tr-${rIdx}`}>{row}</tr>
   })
 
 

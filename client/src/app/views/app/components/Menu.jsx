@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 export default function Menu() {
   return (
     <div className="menu">
-      <Link to="/shop">Shop</Link>
+      <div></div>
+      <Link className="shop-link" to="/shop">Shop</Link>
       <CartIcon />
     </div>
   )

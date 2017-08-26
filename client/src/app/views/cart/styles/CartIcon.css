@@ -4,6 +4,10 @@
   justify-content: center;
 }
 
+.cart-icon {
+  margin-left: 1rem;
+}
+
 .cart-count {
   width: 20px;
   height: 20px;

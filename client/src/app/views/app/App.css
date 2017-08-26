@@ -1,6 +1,75 @@
 .menu {
+  display: flex;
+  flex-direction: row;
   width: 100%;
   margin-top: 20px;
   text-align: center;
   font-size: var(--font-size-large);
+}
+
+
+.shop-link {
+  margin-left: auto;
+}
+
+.cart-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2rem;
+  margin-left: auto;
+}
+
+.app {
+  position: absolute;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.app-body {
+  position: absolute;
+  top: var(--main-margin);
+  right: var(--main-margin);
+  bottom: var(--main-margin);
+  left: var(--main-margin);
+  z-index: 100;
+  z-index: 120;
+  overflow: auto;
+  padding: 0;
+  border-radius: 2px;
+  background-color: var(--body-bg-color);
+  box-shadow: 0 4px 10px 3px rgba(0, 0, 0, 0.2);
+  color: var(--text-color);
+  transition-duration: 0;
+  transform: translate3d(0, 0, 0);
+}
+
+/* component transitions */
+.fade-enter {
+  position: relative;
+  opacity: 0.01;
+  transition-duration: 0.4s;
+  transform: translate3d(0, 0, -30vh);
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition-duration: 3s;
+  transform: translate3d(0, 0, 0);
+}
+
+.fade-exit {
+  position: relative;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0.01;
+  transition-duration: 3s;
+  transform: translate3d(0, 50vh, -100vh);
 }
