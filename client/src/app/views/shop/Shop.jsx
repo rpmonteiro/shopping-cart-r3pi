@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect }          from 'react-redux'
 import PropTypes            from 'prop-types'
+import ProductsList         from './components/ProductsList'
 import { getProducts }      from './state/shop-redux'
 
 
@@ -21,10 +22,15 @@ export class Shop extends Component {
   }
 
   render() {
-    console.log('products', this.props.products)
-    return (
-      <div>
+    const { products } = this.props
 
+    if (!products.size) {
+      return null
+    }
+
+    return (
+      <div className="shop">
+        <ProductsList products={products} />
       </div>
     )
   }

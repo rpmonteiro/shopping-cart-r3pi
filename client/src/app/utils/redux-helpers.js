@@ -7,14 +7,14 @@ export function action(type, data) {
   return { type, data }
 }
 
-export function thunk({endpoint, method, body, onReq, onErr, onSuccess}) {
+export function thunk({endpoint, method, token, body, onReq, onErr, onSuccess}) {
   return (dispatch, getState) => {
     const url     = `${settings.apiServer}/${endpoint}`
-    const token   = getState().user.get('token')
+    const _token  = getState().user.get('token')
     const options = {
       method,
       headers: {
-        Authorization:  `Bearer ${token}`,
+        Authorization:  `Bearer ${token || _token}`,
         Accept:         'application/json',
         'Content-Type': 'application/json'
       }

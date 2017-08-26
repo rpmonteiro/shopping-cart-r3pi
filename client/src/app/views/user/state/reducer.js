@@ -4,7 +4,8 @@ import { setCookie } from '../../../utils/cookies'
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
-  LOGIN_FAILURE
+  LOGIN_FAILURE,
+  SET_USER_TOKEN
 } from './actions'
 
 
@@ -53,6 +54,8 @@ export default function reducer(state = initialState, action = {}) {
         editing:  false
       })
 
+    case SET_USER_TOKEN:
+      return state.set('token', action.data)
 
     default:
       return state

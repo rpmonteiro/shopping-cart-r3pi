@@ -3,7 +3,7 @@ const localServer = 'http://localhost:9010'
 
 const config = {
   env,
-  jwtKey:    'rics-fruit-shop',
+  jwtKey:    'ricsfsjwt',
   apiServer: env === 'production' ? 'https://amz-fba-sv.herokuapp.com/api' : `${localServer}/api`
 }
 
