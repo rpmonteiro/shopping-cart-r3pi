@@ -8,7 +8,6 @@ CartIcon.propTypes = {
 }
 
 export function CartIcon({count}) {
-  console.log('CartIcon', count)
   return (
     <Link to="/cart">
       <div className="cart-icon">

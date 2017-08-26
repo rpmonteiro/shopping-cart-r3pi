@@ -4,6 +4,7 @@ const Router   = require('koa-router')
 const jwt      = require('koa-jwt')
 const auth     = require('../endpoints/auth')
 const user     = require('../endpoints/user')
+const cart     = require('../endpoints/cart')
 const products = require('../endpoints/products')
 
 
@@ -35,15 +36,16 @@ module.exports = function (app, config) {
   // public API routes
   const publicRoutes = new Router({ prefix: '/api' })
   publicRoutes.post('/login', auth.login)
-  app.use(publicRoutes.routes())
 
+  app.use(publicRoutes.routes())
   // extract JWT header token if available
   app.use(jwt({ secret: config.jwtSecret }))
 
   // protected API routes
   const protectedRoutes = new Router({ prefix: '/api' })
-  protectedRoutes.get('/user', user.user)
+  protectedRoutes.get('/user',     user.user)
   protectedRoutes.get('/products', products.products)
+  protectedRoutes.post('/totals',  cart.totals)
 
   app.use(protectedRoutes.routes())
 }

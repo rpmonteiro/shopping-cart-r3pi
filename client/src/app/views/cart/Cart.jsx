@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect }              from 'react-redux'
 import PropTypes                from 'prop-types'
+import settings                 from '../../config/settings'
 import { Map }                  from 'immutable'
 import TableList                from '../../ui/table/TableList'
 import {
@@ -38,16 +39,29 @@ export class Cart extends PureComponent {
   }
 
 
-  cellHandler = ({id, k, v}) => {
+  componentWillMount() {
     const { dispatch, cart } = this.props
+    if (cart.size) {
+      dispatch(getTotals(cart))
+    }
+  }
+
+
+  componentWillReceiveProps(nextProps) {
+    const { dispatch, cart } = this.props
+    const newCart = cart !== nextProps.cart
+
+    if (newCart) {
+      dispatch(getTotals(nextProps.cart))
+    }
+  }
+
+
+  cellHandler = ({id, k, v}) => {
+    const { dispatch } = this.props
 
     if (k === 'qty') {
-      const value = v
-      dispatch(updateCart(id, value))
-
-      if (parseInt(value) > 0) {
-        dispatch(getTotals(cart))
-      }
+      dispatch(updateCart(id, parseInt(v)))
     }
   }
 
@@ -61,34 +75,45 @@ export class Cart extends PureComponent {
   render() {
     const { products, cart, totals } = this.props
 
-    // if (!totals) {
-    //   return null
-    // }
-    console.log('cart', cart.toJS())
-    const cartItems = products.filter(p => cart.get(p.get('id')) !== undefined)
-      .map(p => {
-        const id = p.get('id')
-        return Map({
-          id,
-          image:   p.getIn(['images', 0]),
-          title:   p.get('title'),
-          price:   p.get('price'),
-          qty:     cart.get(id),
-          savings: totals.getIn([id, 'savings']) || 0,
-          total:   totals.getIn([id, 'total'])
+    let component
+    if (!cart.size) {
+      component = <div className="empty-cart">Your cart is empty</div>
+    } else {
+      const cartItems = products
+        .filter(p => cart.get(p.get('id')) !== undefined)
+        .map(p => {
+          const id = p.get('id')
+          return Map({
+            id,
+            image:   p.getIn(['images', 0]),
+            title:   p.get('title'),
+            price:   p.get('price'),
+            qty:     cart.get(id),
+            savings: totals.getIn(['items', id.toString(), 'savings']) || 0,
+            total:   totals.getIn(['items', id.toString(), 'total'])
+          })
         })
-      })
-      console.log('cartItems', cartItems.toJS())
+
+      component = (
+        <div>
+          <TableList
+            items={cartItems}
+            className="cart-items-list"
+            deleteHandler={this.deleteHandler}
+            cellHandler={this.cellHandler}
+            columns={COLUMNS}
+            rowData={ROW_DATA}
+          />
+          <div className="cart-total-price">
+            Total price: {settings.currency} {totals.get('order')}
+          </div>
+        </div>
+      )
+    }
+
     return (
       <div>
-        <TableList
-          items={cartItems}
-          className="cart-items-list"
-          deleteHandler={this.deleteHandler}
-          cellHandler={this.cellHandler}
-          columns={COLUMNS}
-          rowData={ROW_DATA}
-        />
+        {component}
       </div>
     )
   }
