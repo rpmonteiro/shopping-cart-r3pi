@@ -1,0 +1,63 @@
+th.normal {
+  width: 7%;
+}
+
+th.small {
+  width: 3%;
+}
+
+th.big {
+  width: 12%;
+}
+
+table {
+  width: 100%;
+  margin: 30px 0;
+}
+
+
+th,
+td {
+  padding: 10px 2px;
+}
+
+tbody {
+  text-align: center;
+}
+
+
+td input {
+  width: 100%;
+}
+
+.delete-icon {
+  position: absolute;
+  top: calc(50% - 12px);
+  left: -2px;
+  color: rgb(187, 0, 0);
+  opacity: 0;
+  cursor: pointer;
+}
+
+.delete-icon:hover {
+  color: rgb(227, 0, 0);
+}
+
+tr:hover .delete-icon {
+  opacity: 1;
+}
+
+.row-selected {
+  background-color: rgb(219, 255, 186);
+}
+
+td.with-extra {
+  position: relative;
+  padding-left: 20px;
+}
+
+td .select-checkbox {
+  position: absolute;
+  top: calc(50% - 12px);
+  left: 0;
+}
