@@ -16,7 +16,7 @@ const totals = async function (ctx) {
   const productIds = Object.keys(cart).join(',')
   const products   = await getProducts(ctx.db, productIds)
 
-  let orderTotal = 0
+  let orderTotal = 0, savingsTotal = 0
   const items = {}
   products.map(p => {
     const id          = p.id
@@ -33,12 +33,13 @@ const totals = async function (ctx) {
       savings = round(fullPrice - total)
     }
 
-    orderTotal += total
-    items[id] = { total, savings }
+    savingsTotal += savings
+    orderTotal   += total
+    items[id]     = { total, savings }
   })
 
   ctx.status = 200
-  ctx.body = { items, order: round(orderTotal) }
+  ctx.body = { items, order: round(orderTotal), savings: round(savingsTotal) }
 }
 
 

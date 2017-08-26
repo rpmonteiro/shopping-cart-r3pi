@@ -27,6 +27,7 @@ export function AppBody() {
     >
       <div className="app">
         <Flash />
+        <Header />
         <div className="app-body">
           <Menu />
           <Route exact path="/" render={() => <Redirect to="/shop"/>}/>
@@ -40,3 +41,13 @@ export function AppBody() {
 }
 
 export default withRouter(AppBody)
+
+
+
+function Header() {
+  return (
+    <div className="app-header">
+      {'Ric\'s fruit shop'}
+    </div>
+  )
+}

@@ -22,12 +22,19 @@
   }
 }
 
+.cart-total-savings,
 .cart-total-price {
   margin: 1rem 0;
 }
 
+.cart-total-savings span,
 .cart-total-price span {
   margin-left: 10px;
   font-weight: 500;
   font-size: var(--font-size-larger);
+}
+
+
+.the-end {
+  margin-top: 2rem;
 }

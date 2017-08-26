@@ -28,6 +28,19 @@
   height: 100vh;
 }
 
+
+.app-header {
+  z-index: 130;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: var(--main-margin);
+  padding: 0 calc(var(--main-margin) - 10px);
+  color: rgb(224, 224, 224);
+}
+
 .app-body {
   position: absolute;
   top: var(--main-margin);

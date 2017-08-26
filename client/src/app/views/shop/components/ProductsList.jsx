@@ -11,7 +11,7 @@ export default class ProductsList extends PureComponent {
 
   render() {
     const { products } = this.props
-    console.log(products.toJS())
+
     const productRows = products.map((p, idx) => {
       return <ProductRow key={`p-${idx}`} id={p.get('id')} product={p} />
     })

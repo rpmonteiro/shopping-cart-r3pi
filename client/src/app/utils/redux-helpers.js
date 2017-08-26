@@ -30,14 +30,12 @@ export function thunk({endpoint, method, token, body, onReq, onErr, onSuccess}) 
       .then(checkHttpStatus)
       .then(parseJSON)
       .catch(err => {
-        console.log({err})
         if (err.err) {
           dispatch(flashMessage({message: err.err.message, type: 'error'}))
         }
         dispatch(onErr(err))
       })
       .then(res => {
-        console.log({res})
         if (res && res.message) {
           dispatch(flashMessage({message: res.message, type: 'success'}))
         }

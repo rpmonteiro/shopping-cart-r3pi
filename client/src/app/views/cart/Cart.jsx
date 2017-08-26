@@ -39,6 +39,11 @@ export class Cart extends PureComponent {
   }
 
 
+  state = {
+    r3piWantsToBuyTheFruit: false
+  }
+
+
   componentWillMount() {
     const { dispatch, cart } = this.props
     if (cart.size) {
@@ -53,6 +58,7 @@ export class Cart extends PureComponent {
 
     if (newCart) {
       dispatch(getTotals(nextProps.cart))
+      this.setState({r3piWantsToBuyTheFruit: false})
     }
   }
 
@@ -72,7 +78,13 @@ export class Cart extends PureComponent {
   }
 
 
+  handlePay = () => {
+    this.setState({r3piWantsToBuyTheFruit: true})
+  }
+
+
   render() {
+    const { r3piWantsToBuyTheFruit } = this.state
     const { products, cart, totals } = this.props
 
     let view
@@ -94,6 +106,30 @@ export class Cart extends PureComponent {
           })
         })
 
+      let gif
+      if (r3piWantsToBuyTheFruit) {
+        gif = <img className="the-end"
+          src="https://media.giphy.com/media/l4FsyiMgeFbKC9EME/giphy.gif"
+        />
+      }
+
+      let savings
+      if (totals.get('savings') > 0) {
+        savings = (
+          <div className="cart-total-savings">
+            Total savings:
+            <span>{settings.currency} {totals.get('savings')}</span>
+          </div>
+        )
+      }
+
+      const total = (
+        <div className="cart-total-price">
+          Total price:
+          <span>{settings.currency} {totals.get('order')}</span>
+        </div>
+      )
+
       view = (
         <div className="cart-view">
           <TableList
@@ -104,11 +140,10 @@ export class Cart extends PureComponent {
             columns={COLUMNS}
             rowData={ROW_DATA}
           />
-          <div className="cart-total-price">
-            Total price:
-            <span>{settings.currency} {totals.get('order')}</span>
-          </div>
-          <button className="btn btn-primary">Pay</button>
+          {savings}
+          {total}
+          <button onClick={this.handlePay} className="btn btn-primary">Pay</button>
+          {gif}
         </div>
       )
     }
