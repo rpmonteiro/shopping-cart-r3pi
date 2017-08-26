@@ -22,7 +22,7 @@ export function CartIcon({count}) {
 
 const mapStateToProps = (state) => {
   const items = state.cart.get('items')
-  const count = items.reduce((acc, val) => acc + val, 0)
+  const count = items.reduce((acc, val) => acc + (parseInt(val) || 0), 0)
   return { count }
 }
 

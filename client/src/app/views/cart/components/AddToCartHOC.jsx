@@ -44,10 +44,13 @@ export default function AddToCartHOC(Product) {
 
 
     updateCart = e => {
+      const { count }        = this.state
       const { id, dispatch } = this.props
-      const { add } = e.target.dataset
 
-      dispatch(updateCart(id, add))
+      const { add } = e.target.dataset
+      const value   = add ? count + 1 : count - 1
+      
+      dispatch(updateCart(id, value))
     }
 
 
@@ -61,7 +64,7 @@ export default function AddToCartHOC(Product) {
         </button>
       )
     }
-    
+
 
     render() {
       const { active, count } = this.state
