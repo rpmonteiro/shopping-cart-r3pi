@@ -3,7 +3,8 @@ import {
   UPDATE_CART,
   TOTALS_REQUEST,
   TOTALS_SUCCESS,
-  TOTALS_FAILURE
+  TOTALS_FAILURE,
+  DELETE_CART_ITEM
 } from './actions'
 
 const initialState = fromJS({
@@ -34,6 +35,10 @@ export default function reducer(state = initialState, action = {}) {
 
     case TOTALS_FAILURE:
       return state.set('error', action.data)
+
+
+    case DELETE_CART_ITEM:
+      return state.deleteIn(['items', action.data])
 
     default:
       return state

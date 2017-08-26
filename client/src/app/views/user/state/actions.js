@@ -10,7 +10,7 @@ export const SET_USER_TOKEN = 'SET_USER_TOKEN'
 
 
 export const loginRequest = ()    => action(LOGIN_REQUEST)
-export const loginSuccess = data  => action(LOGIN_SUCCESS, data)
+export const loginSuccess = data  => action(LOGIN_SUCCESS, data.user)
 export const loginFailure = err   => action(LOGIN_FAILURE, err.statusText)
 export const setUserToken = token => action(SET_USER_TOKEN, token)
 

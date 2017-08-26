@@ -19,6 +19,7 @@ table img {
 
 th,
 td {
+  position: relative;
   padding: 10px 10px;
 }
 
@@ -50,11 +51,6 @@ tr:hover .delete-icon {
 
 .row-selected {
   background-color: rgb(219, 255, 186);
-}
-
-td.with-extra {
-  position: relative;
-  padding-left: 20px;
 }
 
 td .select-checkbox {

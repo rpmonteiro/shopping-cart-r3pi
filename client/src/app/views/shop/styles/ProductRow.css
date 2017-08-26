@@ -2,6 +2,18 @@
   max-width: 45vw;
 }
 
+@media (max-width: 1000px) {
+  .shop-row {
+    max-width: 85vw;
+  }
+
+  .product-row img {
+    max-height: 100px;
+    width: 100px;
+    height: auto;
+  }
+}
+
 .shop-row:not(:first-child) {
   margin-top: 3rem;
 }
@@ -49,10 +61,4 @@
   letter-spacing: -1px;
   font-weight: 500;
   font-size: var(--font-size-large);
-}
-
-.product-description {
-}
-
-.product-price {
 }

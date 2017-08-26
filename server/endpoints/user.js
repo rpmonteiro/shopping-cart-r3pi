@@ -6,11 +6,13 @@ const createKey = require('../utils/user-utils').createKey
 
 
 async function user(ctx) {
-  const userId = (ctx.state.user && ctx.state.user.id) || 0
-  const user = await ctx.db.users.findOne({id: userId})
+  const userId   = (ctx.state.user && ctx.state.user.id) || 0
+  const user     = await ctx.db.users.findOne({id: userId})
+  const userBody = setupUserBody(user)
 
   if (user) {
-    ctx.body = setupUserBody(user)
+    ctx.body = { user: userBody, message: `Welcome ${user.name}` }
+    ctx.response.message = 'Test123'
     ctx.status = 200
   } else {
     ctx.status = 401

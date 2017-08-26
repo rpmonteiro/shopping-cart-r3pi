@@ -5,11 +5,25 @@
   justify-content: center;
 }
 
+.empty-cart {
+  margin-top: 3rem;
+  text-align: center;
+  font-weight: 500;
+  font-size: var(--font-size-larger);
+}
+
 .cart-items-list {
   max-width: 45vw;
 }
 
+@media (max-width: 1000px) {
+  .cart-items-list {
+    max-width: 80vw;
+  }
+}
+
 .cart-total-price {
+  margin: 1rem 0;
 }
 
 .cart-total-price span {

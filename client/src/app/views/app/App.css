@@ -47,11 +47,23 @@
 }
 
 /* component transitions */
+.fade-appear {
+  position: relative;
+  opacity: 0.01;
+  transition-duration: 1s;
+  transform: translate3d(0, 0, -30vh);
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+
 .fade-enter {
   position: relative;
   opacity: 0.01;
-  transition-duration: 0.4s;
-  transform: translate3d(0, 0, -30vh);
+  transform: translate3d(0, 0, 0);
 }
 
 .fade-enter.fade-enter-active {
@@ -60,13 +72,14 @@
   transform: translate3d(0, 0, 0);
 }
 
-.fade-exit {
+
+.fade-leave {
   position: relative;
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
-.fade-exit.fade-exit-active {
+.fade-leave.fade-leave-active {
   opacity: 0.01;
   transition-duration: 3s;
   transform: translate3d(0, 50vh, -100vh);

@@ -14,7 +14,7 @@ const COLUMNS = [
   { value: '',              class: 'image' },
   { value: 'Product title', class: 'normal' },
   { value: 'Price',         class: 'small' },
-  { value: 'Qty',           class: 'small' },
+  { value: 'Quantity',      class: 'small' },
   { value: 'Savings',       class: 'small' },
   { value: 'Total',         class: 'small' }
 ]
@@ -108,6 +108,7 @@ export class Cart extends PureComponent {
             Total price:
             <span>{settings.currency} {totals.get('order')}</span>
           </div>
+          <button className="btn btn-primary">Pay</button>
         </div>
       )
     }

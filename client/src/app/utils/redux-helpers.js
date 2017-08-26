@@ -32,14 +32,14 @@ export function thunk({endpoint, method, token, body, onReq, onErr, onSuccess}) 
       .catch(err => {
         console.log({err})
         if (err.err) {
-          dispatch(flashMessage(err.err.message, 'error'))
+          dispatch(flashMessage({message: err.err.message, type: 'error'}))
         }
         dispatch(onErr(err))
       })
       .then(res => {
         console.log({res})
-        if (res.message) {
-          dispatch(flashMessage(res.message, 'success'))
+        if (res && res.message) {
+          dispatch(flashMessage({message: res.message, type: 'success'}))
         }
         dispatch(onSuccess(res))
       })

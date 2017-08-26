@@ -6,17 +6,6 @@ import AuthRoute                       from './components/AuthRoute'
 import AppBody                         from './components/AppBody'
 import { autoLoginUser }               from '../user/state/actions'
 import LoginView                       from '../user/LoginView'
-import CSSTransition                   from 'react-transition-group/CSSTransition'
-
-const Fade = ({ children, ...props }) => (
-  <CSSTransition
-    {...props}
-    timeout={500}
-    classNames="fade"
-  >
-    {children}
-  </CSSTransition>
-)
 
 export default class App extends Component {
 
@@ -49,16 +38,14 @@ export default class App extends Component {
     const { store } = this.props
 
     return (
-      <Fade>
-        <Provider store={store}>
-          <Router>
-            <div className="app-container">
-              <Route path="/login" component={LoginView} />
-              <AuthRoute authPath="/login" authHandler={this.authHandler} component={AppBody} />
-            </div>
-          </Router>
-        </Provider>
-      </Fade>
+      <Provider store={store}>
+        <Router>
+          <div className="app-container">
+            <Route path="/login" component={LoginView} />
+            <AuthRoute authPath="/login" authHandler={this.authHandler} component={AppBody} />
+          </div>
+        </Router>
+      </Provider>
     )
   }
 

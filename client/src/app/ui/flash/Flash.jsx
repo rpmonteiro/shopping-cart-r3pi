@@ -34,7 +34,7 @@ export class Flash extends PureComponent {
     return (
       <div className={className} onClick={this.hideFlash}>
         <div>{message}</div>
-        <i className="material-icons md-16 flash-close-icon">close</i>
+        <i className="icon flash-close-icon">close</i>
       </div>
     )
   }
