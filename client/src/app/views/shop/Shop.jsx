@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
 import { connect }          from 'react-redux'
 import PropTypes            from 'prop-types'
+import { getProducts }      from './state/shop-redux'
 
 
 export class Shop extends Component {
 
   static propTypes = {
-    items: PropTypes.object.isRequired
+    dispatch: PropTypes.func.isRequired,
+    products: PropTypes.object.isRequired
+  }
+
+
+  componentWillMount() {
+    this.props.dispatch(getProducts())
   }
 
   state = {
@@ -14,6 +21,7 @@ export class Shop extends Component {
   }
 
   render() {
+    console.log('products', this.props.products)
     return (
       <div>
 
@@ -26,7 +34,7 @@ export class Shop extends Component {
 
 const mapStateToProps = state => {
   return {
-    items: state.shop.get('items')
+    products: state.shop.get('products')
   }
 }
 
